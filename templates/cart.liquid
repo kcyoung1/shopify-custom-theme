@@ -1,1 +1,23 @@
-This is my cart page!
+<h2>Your Cart</h2>
+  {% if cart.item_count > 0 %}
+
+    <form action="/cart" method="post">
+      <table class="cart-table">
+        <thead>
+          <tr>
+            <th>&nbsp;</th>
+            <th>Product Title</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th>&nbsp;</th>
+          </tr>
+        </thead>
+      </table>
+    </form>
+
+  {% else %}
+
+  You don't have any items in your cart!
+
+  {% endif %}
