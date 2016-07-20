@@ -81,6 +81,7 @@ footer li a {
 .collection-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .product {
   margin: 0 20px 30px 0;
@@ -101,4 +102,12 @@ footer li a {
 }
 .product-price {
   font-size: 14px;
+}
+
+/**** collection.liquid ****/
+.pagination {
+  text-align: center;
+  border-top: 1px solid #ccc;
+  padding-top: 30px;
+  margin-top: 30px;
 }
