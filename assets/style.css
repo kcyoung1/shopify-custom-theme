@@ -32,17 +32,6 @@ ul {
   color: #fff;
 }
 
-/* Contain floats */
-.clearfix:before, .clearfix:after {
-  content: " ";
-  display: table;
-}
-.clearfix:after {
-  clear: both;
-}
-.clearfix {
-  zoom: 1;
-}
 /**** theme.liquid ****/
 
 .container {
@@ -173,6 +162,9 @@ footer li a {
   margin: 0 20px 20px 0;
   width: 100px;
 }
+.product-page {
+  display: flex;
+}
 .product-details {
   width: 524px;
 }
@@ -191,15 +183,8 @@ footer li a {
 .selector-wrapper {
   padding: 10px 0;
   border-bottom: 1px solid #ccc;
-}
-.selector-wrapper label, .selector-wrapper select {
-  display: inline-block;
-}
-.selector-wrapper label {
-  float: left;
-}
-.selector-wrapper select {
-  float: right;
+  display: flex;
+  justify-content: space-between;
 }
 .product-variants {
   margin-bottom: 10px;
