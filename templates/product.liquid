@@ -1,36 +1,49 @@
-<div class="product-page ">
-  <div class="product-images left">
-    <div class="product-featured-image">
-      <a href="{{ product.featured_image.src | product_img_url: 'orginal' }}">
-        <img src="{{ product.featured_image.src | product_img_url: 'grande' }}" alt="{{ product.featured_image.alt | escape }}" />
-      </a>
-    </div>
-    {% for image in product.images | offset:1 %}
-    <div class="product-img left {% cycle ' ', ' ', ' ', 'last' %}">
-      <a href="{{ image.src | product_img_url: 'orginal' }}">
-        <img src="{{ image.src | product_img_url: 'small' }}" alt="{{ image.alt | escape }}" />
-      </a>
-      {% endfor %}
-    </div>
-  </div>
-  <div class="product-details left">
-    <h2 class="product-header">{{ product.title }}</h2>
-    <div class="product-desc rte">{{ product.description }}</div>
-    <div class="price-field"></div>
-    <form class="product-form" action="/cart/add" method="post">
-      <div class="product-variants">
-        <select id="product-select" name="id">
-          {% for variant in product.variants %}
-          <option value="{{ variant.id }}">
-            {{ variant.title }} - {{ variant.price | money }}
-          </option>
-          {% endfor %}
-        </select>
+<div class="product-container">
+  <div class="product-page">
+    <div class="product-images left">
+      <div class="product-featured-image">
+        <a href="{{ product.featured_image.src | product_img_url: 'orginal' }}">
+          <img src="{{ product.featured_image.src | product_img_url: 'grande' }}" alt="{{ product.featured_image.alt | escape }}" />
+        </a>
       </div>
-      <input type="submit" name="add" value="Purchase" class="btn">
-    </form>
+      {% for image in product.images | offset:1 %}
+      <div class="product-img left {% cycle ' ', ' ', ' ', 'last' %}">
+        <a href="{{ image.src | product_img_url: 'orginal' }}">
+          <img src="{{ image.src | product_img_url: 'small' }}" alt="{{ image.alt | escape }}" />
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="product-details left">
+      <h2 class="product-header">{{ product.title }}</h2>
+      <div class="product-desc rte">{{ product.description }}</div>
+      <div class="price-field"></div>
+      <form class="product-form" action="/cart/add" method="post">
+        <div class="product-variants">
+          <select id="product-select" name="id">
+            {% for variant in product.variants %}
+            <option value="{{ variant.id }}">
+              {{ variant.title }} - {{ variant.price | money }}
+            </option>
+            {% endfor %}
+          </select>
+        </div>
+        <input type="submit" name="add" value="Purchase" class="btn">
+      </form>
+      {% if collection %}
+      <div class="product-nav">
+        {% if collection.previous_product %}
+        <div class="left">{{ '&larr; Previous Product' | link_to: collection.previous_product }}</div>
+        {% endif %}
+        {% if collection.next_product %}
+        <div class="right">{{ 'Next Product &rarr;' | link_to: collection.next_product }}</div>
+        {% endif %}
+      </div>
+      {% endif %}
+    </div>
   </div>
 </div>
+
 
 <script type="text/javascript">
   //<![CDATA[

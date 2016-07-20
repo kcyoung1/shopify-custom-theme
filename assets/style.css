@@ -162,7 +162,7 @@ footer li a {
   margin: 0 20px 20px 0;
   width: 100px;
 }
-.product-page {
+.product-page, .product-container {
   display: flex;
 }
 .product-details {
@@ -188,4 +188,8 @@ footer li a {
 }
 .product-variants {
   margin-bottom: 10px;
+}
+.product-nav {
+  display: flex;
+  justify-content: space-between;
 }
