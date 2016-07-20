@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <title>{{ page_title }} - {{ shop.name }}</title>
   {{ content_for_header }}
 
   {{ "normalize.css" | asset_url | stylesheet_tag }}
@@ -14,6 +15,26 @@
 
 </head>
 <body>
+  <div class="container">
+    <h1 class="logo"><a href="/">{{ shop.name }}</a></h1>
+    <nav class="main-menu">
+      <ul>
+        {% for link in linklists.main-menu.links %}
+        <li
+        {% if link.active %}
+         class="current"
+         {% endif %}
+          >
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+    <div class="content">
       {{ content_for_layout}}
+    </div>
+  </div>
+
+
 </body>
 </html>
