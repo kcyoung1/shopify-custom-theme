@@ -1,1 +1,23 @@
-This is my blog page!
+<h2>{{ blog.title }}</h2>
+
+{% for article in blog.articles %}
+<div class="blog-article {% if forloop.last %}no-border{% endif %}">
+  <h3 class="blog-title"><a href="{{ article.url }}">{{ article.title }}</a></h3>
+  <div class="blog-data">
+    {{ article.published_at | date: '%b %d, %Y' }}
+    {% if blog.comments_enabled? %}
+    - <a href="{{ article.url }}#comments">{{ article.comments_count }} {{ article.comments_count | pluralize: 'comment', 'comments' }}</a>
+    {% endif %}
+  </div>
+  <div class="blog-content rte">
+    {{ article.excerpt_or_content }}
+  </div>
+  <div class="article-container">
+    {% if article.tags.size > 0 %}
+    <div class="blog-tags">
+
+
+    </div>
+  </div>
+</div>
+{% endfor %}
