@@ -119,6 +119,9 @@ footer li a {
 .product-thumb {
   border: 1px solid #ccc;
   padding: 10px;
+  height: 180px;
+  display: flex;
+  align-items: center;
 }
 .product-thumb img {
   max-width: 100%;
@@ -348,4 +351,10 @@ footer li a {
 .search-title-img {
   display: flex;
   flex-direction: column;
+}
+
+/**** list-collections.liquid ****/
+.collections-grid {
+  display: flex;
+  justify-content: center;
 }
