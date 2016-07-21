@@ -12,11 +12,16 @@
   <div class="blog-content rte">
     {{ article.excerpt_or_content }}
   </div>
-  <div class="article-container">
+  <div class="article-footer-container">
     {% if article.tags.size > 0 %}
-    <div class="blog-tags">
-
-
+    <div class="blog-tags left">
+      tags: {% for tag in article.tags %}
+      <a href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
+      {% endfor %}
+    </div>
+    {% endif %}
+    <div class="blog-read-more right">
+      <a href="{{ article.url }}" class="btn">Read more &#8594;</a>
     </div>
   </div>
 </div>

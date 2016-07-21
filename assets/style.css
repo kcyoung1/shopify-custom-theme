@@ -32,6 +32,12 @@ ul {
   color: #fff;
 }
 
+.left {
+ text-align: left;
+}
+.right {
+  text-align: right;
+}
 /**** theme.liquid ****/
 
 .container {
@@ -223,4 +229,14 @@ footer li a {
 }
 .cart-info {
   padding: 7px 25px 0 0;
+}
+
+/**** blog.liquid ****/
+.article-footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.blog-content {
+  line-height: 1.45em;
 }
