@@ -21,4 +21,20 @@
 
 {% if blog.comments_enabled? %}
 
+{% if article.comments.size > 0 %}
+<div class="comments">
+  <h2>Comments ({{ article.comments_count }})</h2>
+  {% for comment in article.comments %}
+  <div class="comment">
+      <div class="comment-data">
+        {{ comment.author }} <small>on {{ comment.created_at | date: "%B %d, %Y" }}</small>
+      </div>
+      <div class="comment-content">
+        {{ comment.content }}
+      </div>
+  </div>
+  {% endfor %}
+</div>
+  {% endif %}
+
 {% endif %}
