@@ -1,9 +1,9 @@
 {% paginate blog.articles by 5 %}
 
 {% if current_tags %}
-<h2>{{ blog.title | link_to: blog.url }} &raquo; {{ current_tags.first }}</h2>
+<h2 class="blog-main-title">{{ blog.title | link_to: blog.url }} &raquo; {{ current_tags.first }}</h2>
 {% else %}
-<h2>{{ blog.title }}</h2>
+<h2 class="blog-main-title">{{ blog.title }}</h2>
 {% endif %}
 
 {% for article in blog.articles %}

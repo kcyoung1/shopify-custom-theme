@@ -50,6 +50,8 @@ ul {
   font-size: 12px;
   padding: 10px 0;
   text-align: right;
+  display: flex;
+  align-items: center;
 }
 .logo {
   font-size: 60px;
@@ -228,15 +230,45 @@ footer li a {
   text-align: right;
 }
 .cart-info {
-  padding: 7px 25px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 /**** blog.liquid ****/
+.blog-main-title {
+  font-size: 30px;
+  text-transform: uppercase;
+}
+.blog-title {
+  margin-bottom: 0;
+}
+.blog-article {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+}
 .blog-data {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   margin: 10px 0;
+  font-size: 13px;
+  font-weight: bold;
+}
+.blog-content {
+  margin-bottom: 15px;
+}
+.blog-tags {
+  width: 800px;
+  font-weight: bold;
+  font-size: 14px;
+}
+.blog-read-more {
+  width: 122px;
+}
+.no-border {
+  border: none !important;
 }
 .article-footer-container {
   display: flex;
