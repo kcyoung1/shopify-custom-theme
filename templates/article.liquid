@@ -37,4 +37,24 @@
 </div>
   {% endif %}
 
-{% endif %}
+<div class="comment-form">
+  {% form article %}
+  <h2>Leave a comment:</h2>
+  <div class="comment-entries">
+    <p>
+      <label for="comment-author">Name</label>
+      <input {% if form.errors contains "author" %} class="error" {% endif %} type="text" name="comment[author]" placeholder="Your name" value="{{ form.author }}" />
+    </p>
+    <p>
+      <label for="comment-emal">Email</label>
+      <input {% if form.errors contains "email" %} class="error" {% endif %} type="email" name="comment[email]" placeholder="your@email.com" value="{{ form.email }}" />
+    </p>
+    <p>
+      <label for="comment-body">Message</label>
+      <textarea {% if form.errors contains "body" %} class="error" {% endif %} name="comment[body]">{{ form.body }}</textarea>
+    </p>
+  </div>
+  <input type="submit" value="Post Comment!" class="btn" />
+  {% endform %}
+</div>
+  {% endif %}
