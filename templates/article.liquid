@@ -40,6 +40,27 @@
 <div class="comment-form">
   {% form article %}
   <h2>Leave a comment:</h2>
+
+  {% if form.errors %}
+  <div class="errors">
+    <p>{{ settings.comments_error_message }}</p>
+    {% for field in form.errors %}
+    <p>The {{ field | capitalize | replace: 'Body', 'Message' }} field {{ form.errors.messages[field] }}.</p>
+  {% endfor %}
+  </div>
+ {% endif %}
+ {% if form.posted_successfully? %}
+ <div class="success">
+   <p>
+     {% if blog.moderated? %}
+        Your comment needs to be approved by the blog owner.
+      {% else %}
+        Successfully posted your comment.
+      {% endif %}
+   </p>
+ </div>
+ {% endif %}
+ 
   <div class="comment-entries">
     <p>
       <label for="comment-author">Name</label>
@@ -54,7 +75,7 @@
       <textarea {% if form.errors contains "body" %} class="error" {% endif %} name="comment[body]">{{ form.body }}</textarea>
     </p>
   </div>
-  <input type="submit" value="Post Comment!" class="btn" />
+  <input type="submit" value="Post Comment" class="btn" />
   {% endform %}
 </div>
   {% endif %}
