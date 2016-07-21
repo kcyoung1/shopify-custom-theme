@@ -16,10 +16,16 @@
 </head>
 <body>
   <div class="header-toolbar">
-    <div class="container ">
-      <div class="cart-info right">
+    <div class="container toolbar-container">
+      <div class="cart-info">
             Cart: <a href="/cart">{{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }})</a>
-          </div>
+      </div>
+      <div class="header-search">
+        <form class="search-form" action="/search" method="get" role="search">
+          <input type="text" name="q" class="search-field" placeholder="Search store..."/>
+          <input type="submit" class="btn" value="Search"/>
+        </form>
+      </div>
     </div>
   </div>
   <div class="container">

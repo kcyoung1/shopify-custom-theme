@@ -53,6 +53,10 @@ ul {
   display: flex;
   align-items: center;
 }
+.toolbar-container {
+  display: flex;
+  justify-content: flex-end;
+}
 .logo {
   font-size: 60px;
   margin: 40px;
@@ -203,7 +207,6 @@ footer li a {
 }
 
 /**** cart.liquid ****/
-
 .cart-table {
   width: 100%;
 }
@@ -233,6 +236,7 @@ footer li a {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  margin-right: 20px;
 }
 
 /**** blog.liquid ****/
