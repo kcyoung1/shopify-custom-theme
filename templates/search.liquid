@@ -1,8 +1,10 @@
+{% paginate search.results by 5 %}
+
 <h2>Search</h2>
 <div class="search-form">
   <form class="search-form" action="/search" method="get" role="search">
     <p>
-      <input type="text" name="q" value="{{ search.terms | escape}}" />
+      <input type="text" name="q" value="{{ search.terms | escape }}" />
       <input type="submit" value="Search store" class="btn" />
     </p>
   </form>
@@ -14,13 +16,16 @@
   {% else %}
     {% for item in search.results %}
       <div class="search-result">
-        <h3>{{ item.title | link_to: item.url }}</h3>
-        {% if item.featured_image %}
-        <div class="product-thumb left">
-          <a href="{{ item.url }}" title="{{ item.title | escape }}">
-            {{ item.featured_image.src | product_img_url: 'small' | img_tag: item.featured_image.alt }}
-          </a>
+        <div class="search-title-img">
+          <h3>{{ item.title | link_to: item.url }}</h3>
+          {% if item.featured_image %}
+          <div class="product-thumb left">
+            <a href="{{ item.url }}" title="{{ item.title | escape }}">
+              {{ item.featured_image.src | product_img_url: 'small' | img_tag: item.featured_image.alt }}
+            </a>
+          </div>
         </div>
+
         <div class="search-text left">{{ item.content | strip_html | truncatewords: 40 | highlight: search.terms }}</div>
         {% else %}
         <div>{{ item.content | strip_html | truncatewords: 40 | highlight: search.terms }}</div>
@@ -29,3 +34,10 @@
       {% endfor %}
     {% endif %}
 {% endif %}
+
+{% if paginate.pages >1 %}
+<div class="pagination">
+  {{ paginate | default_pagination }}
+</div>
+{% endif %}
+{% endpaginate %}

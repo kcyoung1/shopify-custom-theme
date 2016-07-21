@@ -321,3 +321,27 @@ footer li a {
 .success {
   color: #5BB85E;
 }
+
+/**** search.liquid ****/
+
+.search-form input[type='text'] {
+  border: 1px solid #ccc;
+  padding: 6px;
+}
+.search-result {
+  margin-bottom: 20px;
+  display: flex;
+}
+.search-text {
+  width: 818px;
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+}
+.highlight {
+  color: #ff0000;
+}
+.search-title-img {
+  display: flex;
+  flex-direction: column;
+}
