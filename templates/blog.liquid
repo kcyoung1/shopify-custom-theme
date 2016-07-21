@@ -1,4 +1,10 @@
+{% paginate blog.articles by 5 %}
+
+{% if current_tags %}
+<h2>{{ blog.title | link_to: blog.url }} &raquo; {{ current_tags.first }}</h2>
+{% else %}
 <h2>{{ blog.title }}</h2>
+{% endif %}
 
 {% for article in blog.articles %}
 <div class="blog-article {% if forloop.last %}no-border{% endif %}">
@@ -6,7 +12,7 @@
   <div class="blog-data">
     {{ article.published_at | date: '%b %d, %Y' }}
     {% if blog.comments_enabled? %}
-    - <a href="{{ article.url }}#comments">{{ article.comments_count }} {{ article.comments_count | pluralize: 'comment', 'comments' }}</a>
+    - &nbsp;<a href="{{ article.url }}#comments">{{ article.comments_count }} {{ article.comments_count | pluralize: 'comment', 'comments' }}</a>
     {% endif %}
   </div>
   <div class="blog-content rte">
@@ -26,3 +32,11 @@
   </div>
 </div>
 {% endfor %}
+
+{% if pagination.pages > 1 %}
+<div class="pagination">
+  {{ paginate | default_pagination }}
+</div>
+{% endif %}
+
+{% endpaginate %}

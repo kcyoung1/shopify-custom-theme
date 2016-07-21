@@ -232,6 +232,12 @@ footer li a {
 }
 
 /**** blog.liquid ****/
+.blog-data {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10px 0;
+}
 .article-footer-container {
   display: flex;
   justify-content: space-between;
