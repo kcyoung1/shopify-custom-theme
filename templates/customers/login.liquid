@@ -1,0 +1,27 @@
+<div class="login-container">
+
+  <!-- Customer Login -->
+  <div class="customer-login">
+    <h2>Customer Login</h2>
+
+    {% form 'customer_login' %}
+    {{ form.errors | default_errors }}
+    <div class="login_email">
+      <label for="customer_email">Email Address</label>
+      <input type="email" name="customer[email]" value="" id="customer_email" size="30" />
+    </div>
+    <div class="form-row">
+      <label for="customer_password">Password</label>
+      <input type="password" name="customer[password]" value="" id="customer_password" size="16" />
+    </div>
+    <div class="form-row forgot-password">
+      <a href="#" onclick="return false;">Forgot your password?</a>
+    </div>
+    <div class="form-row">
+      <input class="btn" type="submit" value="Sign In" />
+    </div>
+      {% endform %}
+  </div>
+  <!-- End Customer Login  -->
+
+</div>
