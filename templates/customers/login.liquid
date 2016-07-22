@@ -4,6 +4,8 @@
   <div class="customer-login">
     <h2>Customer Login</h2>
 
+    <p class="reset-success success">Instructions for resetting your password has been sent.</p>
+
     {% form 'customer_login' %}
     {{ form.errors | default_errors }}
     <div class="login_email">
@@ -36,6 +38,10 @@
   {% form 'recover_customer_password' %}
   {{ form.errors | default_errors }}
 
+  {% if form.posted_successfully? %}
+    {% assign reset_success = true %}
+  {% endif %}
+
   <div class="form-row">
     <label class="large" for="email">Email Address</label>
     <input class="large" type="email" name="email" value="" id="recover-email" size="30" />
@@ -55,5 +61,8 @@
     $(".recover-cancel a").click(function() {
       $(".customer-login, .guest-login, .recover-password").toggle();
     });
+    {% if reset_success %}
+      $(".reset-success").show();
+    {% endif %}  
   });
 </script>
