@@ -49,13 +49,20 @@ ul {
   color: #fff;
   font-size: 12px;
   padding: 10px 0;
-  text-align: right;
   display: flex;
+  justify-content: center;
   align-items: center;
 }
 .toolbar-container {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+}
+.customer-links {
+  display: flex;
+  align-items: center;
+}
+.cart-info-search {
+  display: flex;
 }
 .logo {
   font-size: 60px;

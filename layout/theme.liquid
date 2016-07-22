@@ -17,14 +17,26 @@
 <body>
   <div class="header-toolbar">
     <div class="container toolbar-container">
-      <div class="cart-info">
-            Cart: <a href="/cart">{{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }})</a>
+      <div class="customer-links">
+        {% if customer %}
+          Logged in as &nbsp; <a href="/account">{{ customer.first_name }}</a> &nbsp; · &nbsp;{{ 'Log out' | customer_logout_link }}
+        {% else %}
+          {{ 'Log in' | customer_login_link }}
+          {% if shop.customer_accounts_optional %}
+        &nbsp; or &nbsp;{{ 'Create an account' | customer_register_link }}
+          {%endif %}
+        {% endif %}
       </div>
-      <div class="header-search">
-        <form class="search-form" action="/search" method="get" role="search">
-          <input type="text" name="q" class="search-field" placeholder="Search store..."/>
-          <input type="submit" class="btn" value="Search"/>
-        </form>
+      <div class="cart-info-search">
+        <div class="cart-info">
+              Cart: <a href="/cart">{{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }})</a>
+        </div>
+        <div class="header-search">
+          <form class="search-form" action="/search" method="get" role="search">
+            <input type="text" name="q" class="search-field" placeholder="Search store..."/>
+            <input type="submit" class="btn" value="Search"/>
+          </form>
+        </div>
       </div>
     </div>
   </div>
