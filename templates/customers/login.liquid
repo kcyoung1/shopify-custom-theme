@@ -26,9 +26,22 @@
     </div>
       {% endform %}
   </div>
-  <!-- End Customer Login  -->
+<!-- End Customer Login  -->
+
+<!-- Guest Login -->
+
+{% if shop.checkout.guest_login %}
+  <div class="guest-login">
+    <h2>Guest Login</h2>
+      {% form 'guest_login' %}
+        <input class="btn" type="submit" value="Continue as Guest" />
+      {% endform %}
+  </div>
+{% endif %}
+<!-- End Guest Login -->
 
 </div>
+
 <!-- Password reset -->
 
 <div class="recover-password">
@@ -63,6 +76,6 @@
     });
     {% if reset_success %}
       $(".reset-success").show();
-    {% endif %}  
+    {% endif %}
   });
 </script>

@@ -27,11 +27,11 @@
         &nbsp; or &nbsp;{{ 'Create an account' | customer_register_link }}
           {%endif %}
         {% endif %}
-      {% endif %}  
+      {% endif %}
       </div>
       <div class="cart-info-search">
         <div class="cart-info">
-              Cart: <a href="/cart">{{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }})</a>
+              Cart: &nbsp;<a href="/cart">{{ cart.item_count }} {{ cart.item_count | pluralize: 'item', 'items' }} ({{ cart.total_price | money }})</a>
         </div>
         <div class="header-search">
           <form class="search-form" action="/search" method="get" role="search">
