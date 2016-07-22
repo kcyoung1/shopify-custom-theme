@@ -1,0 +1,29 @@
+<h2>Create Account</h2>
+
+{% form 'create_customer' %}
+{{ form.errors | default_errors }}
+
+<div id="first_name" class="form-row">
+  <label for="first_name" class="login" >First Name</label>
+  <input type="text" name="customer[first_name]" value=" " id="first_name" class="large" size="30" />
+</div>
+
+<div id="last_name" class="form-row">
+  <label for="last_name" class="login" >Last Name</label>
+  <input type="text" name="customer[last_name]" value=" " id="last_name" class="large" size="30" />
+</div>
+
+<div id="email" class="form-row">
+  <label for="email" class="login" >Email Address</label>
+  <input type="email" name="customer[email]" value=" " id="email" class="large" size="30" />
+</div>
+
+<div id="password" class="form-row">
+  <label for="password" class="login" >Password</label>
+  <input type="password" name="customer[password]" value=" " id="password" class="large" size="30" />
+</div>
+
+<div class="form-row">
+  <input class="btn" type="submit" value="Create" />
+</div>
+{% endform %}
