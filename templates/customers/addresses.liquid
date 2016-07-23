@@ -61,3 +61,11 @@
   </div>
 </div>
 <!-- End Add Address Form -->
+
+<script type="text/javascript" charset="uft-8">
+  // initialize observers on address selectors
+  new Shopify.CountryProvinceSelector('address_country_new', 'address_province_new', {hideElement: 'address_province_container_new'});
+  {% for address in customer.addresses %}
+  new Shopify.CountryProvinceSelector('address_country_{{ address.id }}', 'address_province_{{ address.id }}', {hideElement: 'address_province_container{{ address.id }}'});
+  {% endfor %}
+</script>
