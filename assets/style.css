@@ -442,6 +442,30 @@ footer li a {
 }
 
 /**** addresses.liquid ****/
-.add-address-wrapper .form-row label {
+.add-address-wrapper .form-row label, .customer_address_table .form-row label, .add-address-wrapper form .update-address, .customer-address-table form .update-address {
   margin: 10px 0;
+}
+.default-container {
+  display: flex;
+  justify-content: space-between;
+}
+.add-address-wrapper {
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #ccc;
+}
+.user-address {
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #ccc;
+}
+.user-address p, .user-address h3 {
+  margin: 0;
+}
+.last-address {
+  border-bottom: none;
+  padding: 0;
+}
+.update-address {
+  margin-top: 15px;
 }
