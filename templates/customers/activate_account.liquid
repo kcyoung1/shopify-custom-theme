@@ -6,13 +6,15 @@
 
 <div id="password" class="form-row">
   <label class="large" for="password">Password</label>
-  <input type="password" name="customer[password]" value=" " id="customer_password" class="large password" size="16"/>
+  <input type="password" name="customer[password]" value="" id="customer_password" class="large password" size="16"/>
 </div>
 <div id="password_confirm" class="form-row">
   <label class="large" for="password_confirmation">Re-Enter Password</label>
-  <input type="password" name="customer[password_confirmation]" value=" " id="customer_password_confirmation" class="large password" size="16"/>
+  <input type="password" name="customer[password_confirmation]" value="" id="customer_password_confirmation" class="large password" size="16"/>
 </div>
 <div class="form-row">
+  <input type="submit" class="btn" value="Activate Account"/>
+  <span class="note">or</span>
   <input type="submit" class="btn" name="decline" id="customer_decline" value="Decline Invitation" />
 </div>
 {% endform %}
