@@ -1,0 +1,30 @@
+<h2>Account Details and Order History</h2>
+
+  <div class="account-container">
+    <div class="account-user">
+      <div class="user-name">
+        <strong>{{ customer.name }}</strong>
+        <p>{{ customer.email }}</p>
+      </div>
+
+      {% if customer.default_address != nil %}
+      <p>{{ customer.default_address.address1 }}</p>
+      {% if customer.default_address.address2 != " " %}
+      <p>{{ customer.default_address.address2 }}</p>
+      {% endif %}
+      <p>
+        {{ customer.default_address.city }},
+        {% if address.province_code %}{{ customer.default_address.province_code }},
+        {% endif %}{{ customer.default_address.country }}
+       </p>
+       <p>{{ customer.default_address.zip }}</p>
+       <p>{{ customer.default_address.phone }}</p>
+       {% endif %}
+       <a href="/account/addresses">View Addresses ({{ customer.addresses_count }})</a>
+    </div>
+
+    <div class="account-table">
+        {% if customer.orders.size != 0 %}
+        {% endif %}
+    </div>
+  </div>
