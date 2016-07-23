@@ -25,6 +25,32 @@
 
     <div class="account-table">
         {% if customer.orders.size != 0 %}
+        <table>
+          <thead>
+            <tr class="cart-headers">
+              <th>Order</th>
+              <th>Date</th>
+              <th>Payment Status</th>
+              <th>Fulfillment Status</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for order in customer.orders %}
+            <tr {% if order.cancelled %}
+            class="cancelled_order"
+            {% endif %}>
+              <td>{{ order.name | link_to: order.customer_url }}</td>
+              <td>{{ order.created_at | date: "%b %d, %Y" }}</td>
+              <td>{{ order.financial_status }}</td>
+              <td>{{ order.fulfillment_status }}</td>
+              <td>{{ order.total_price | money}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        {% else %}
+        <p>You haven't placed any orders yet.</p>
         {% endif %}
     </div>
   </div>

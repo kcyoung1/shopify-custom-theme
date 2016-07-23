@@ -395,3 +395,39 @@ footer li a {
 .recover-password, .reset-success {
   display: none;
 }
+
+/**** accounts.liquid ****/
+.account-container {
+  display: flex;
+}
+.account-user {
+  margin-right: 60px;
+  width: 172px;
+  font-size: 14px;
+}
+.account-user p {
+  margin: 0;
+}
+.user-name {
+  margin-bottom: 20px;
+}
+.account-table {
+  width: 728px;
+}
+.account-table table {
+  width: 100%;
+  text-align: left;
+}
+.account-table td {
+  padding-top: 15px;
+}
+.account-table tbody, .last-row td, .account-user .status {
+  padding-bottom: 15px;
+}
+.account-table tfoot {
+  text-align: right;
+  border-top: 1px solid #ccc;
+}
+.cart-headers {
+  border-bottom: 1px solid #ccc;
+}
