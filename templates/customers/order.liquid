@@ -43,7 +43,77 @@
       {% endif %}
     </div>
   </div>
+
   <div class="account-table">
+    <table>
+      <thead>
+        <tr class="cart-headers">
+          <th>Product</th>
+          <th>SKU</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th class="order-total">Total</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for line_item in order.line_items %}
+        <tr id="{{ line_item.id }}"
+              {% if forloop.last %}
+              class="last-row"
+              {% endif %}>
+          <td class="order-product">
+            {{ line_item.title | link_to: link_item.product.url }}
+            {% if line_item.fulfillment %}
+              Fulfilled {{ line_item.fulfillment.created_at | date: "%b %d" }}
+              {% if line_item.fulfillment.tracking_number %}
+              <a href="{{ line_item.fulfillment.tracking_url }}">{{ line_item.fulfillment.tracking_company }} #{{ line_item.fulfillment.tracking_number }}</a>
+              {% endif %}
+            {% endif %}
+          </td>
+          <td class="sku">{{ line_item.sku }}</td>
+
+          <td class="order-money">{{ line_item.price | money }}</td>
+          <td class="order-quantity">{{ line_item.quantity }}</td>
+          <td class="order-total">{{ line_item.quantity | times: line_item.price | money }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+
+      <tfoot>
+        <tr class="order_summary">
+          <td class="label" colspan="4">Subtotal:</td>
+          <td class="total money">{{ order.subtotal_price | money }}</td>
+        </tr>
+
+        {% for discount in order.discounts %}
+        <tr class="order_summary discount">
+          <td class="label" colspan="4">{{ discount.code }} Discount:</td>
+          <td class="total money">{{ discount.savings | money }}</td>
+        </tr>
+        {% endfor %}
+
+        {% for shipping_method in order.shipping_methods %}
+        <tr class="order_summary">
+          <td class="label" colspan="4">Shipping ({{ shipping_method.title }}):</td>
+          <td class="total money">{{ shipping_method.price | money }}</td>
+        </tr>
+        {% endfor %}
+
+        {% for tax_line in order.tax_lines %}
+        <tr class="order_summary">
+          <td class="label" colspan="4">Tax ({{ tax_line.title }} {{ tax_line.rate | times: 100 }}):</td>
+          <td class="total money">{{ tax_line.price | money }}</td>
+        </tr>
+        {% endfor %}
+
+        <tr class="order_summary order_total">
+          <td class="label" colspan="4">Total:</td>
+          <td><strong>{{ order.total_price | money }} {{ order.currency }}</strong></td>
+        </tr>
+      </tfoot>
+    </table>
+    <p class="return"><a href="/account">&larr; Return to account page</a></p>
 
   </div>
 </div>

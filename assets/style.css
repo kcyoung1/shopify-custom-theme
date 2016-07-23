@@ -431,3 +431,12 @@ footer li a {
 .cart-headers {
   border-bottom: 1px solid #ccc;
 }
+
+/**** order.liquid ****/
+.order-total {
+  text-align: right;
+}
+.return {
+  border-top: 1px solid #ccc;
+  padding-top: 15px;
+}
