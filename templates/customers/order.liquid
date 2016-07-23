@@ -1,0 +1,49 @@
+<h2>Order {{ order.name }}</h2>
+
+<div class="account-container">
+  <div class="account-user">
+    {% if order.cancelled %}
+    <div id="order-cancelled" class="flash notice">
+      <h5 id="order-cancelled-title">Order Cancelled</h5>
+      on {{ order.cancelled_at | date: "%B %d, %Y %I:%M%p" }}
+      {{ order.cancel_reason }}
+    </div>
+    {% endif %}
+
+    <div class="order-date">
+      Placed on {{ order.created_at | date: "%B %d, %Y %I:%M%p" }}
+    </div>
+
+    <div class="order-address">
+      <div class="order-payment">
+        <h3>Billing Address</h3>
+        <p class="status">Payment Status: {{ order.financial_status }}</p>
+        <div class="address">
+          <p>{{ order.billing_address.name }}</p>
+          <p>{{ order.billing_address.company }}</p>
+          <p>{{ order.billing_address.street }}</p>
+          <p>{{ order.billing_address.city }}, {{ order.billing_address.province }}</p>
+          <p>{{ order.billing_address.country }} {{ order.billing_address.zip }}</p>
+          <p>{{ order.billing_address.phone }}</p>
+        </div>
+      </div>
+      {% if order.shipping_address %}
+      <div class="order-shipping">
+        <h3>Shipping Address</h3>
+        <p class="status">Fulfillment Status: {{ order.fulfillment_status }}</p>
+        <div class="address">
+          <p>{{ order.shipping_address.name }}</p>
+          <p>{{ order.shipping_address.company }}</p>
+          <p>{{ order.shipping_address.street }}</p>
+          <p>{{ order.shipping_address.city }}, {{ order.shipping_address.province }}</p>
+          <p>{{ order.shipping_address.country }} {{ order.shipping_address.zip }}</p>
+          <p>{{ order.shipping_address.phone }}</p>
+        </div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+  <div class="account-table">
+
+  </div>
+</div>
